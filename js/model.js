@@ -7,3 +7,7 @@ function setTodos(todoArray) {
 function getTodosFromState() {
   return todos;
 }
+
+function addTodoToState(todoItem) {
+  todos = [todoItem, ...todos];
+}
