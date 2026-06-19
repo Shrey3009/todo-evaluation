@@ -5,9 +5,18 @@ const pendingTodoArea = document.getElementById("pendingList");
 const completedTodoArea = document.getElementById("completedList");
 
 async function init() {
+  const savedTodos = loadTodosFromStorage();
+
+  if (savedTodos !== null) {
+    setTodos(savedTodos);
+  }
+  else {
   const todosFromApi = await getTodos();
 
   setTodos(todosFromApi);
+  saveTodosToStorage();
+  }
+  
   renderTodos(getTodosFromState());
   
 }

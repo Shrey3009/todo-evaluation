@@ -1,3 +1,4 @@
+const STORAGE_KEY = "todo_app_items";
 let todos = [];
 
 function setTodos(todoArray) {
@@ -10,12 +11,14 @@ function getTodosFromState() {
 
 function addTodoToState(todoItem) {
   todos = [todoItem, ...todos];
+  saveTodosToStorage();
 }
 
 function deleteTodoFromState(id) {
     todos = todos.filter(function(todo){
         return todo.id !== id;
     });
+    saveTodosToStorage();
 }
 
 function toggleTodoInState(id) {
@@ -37,6 +40,7 @@ function toggleTodoInState(id) {
   });
 
   todos = [updatedTodo, ...remainingTodos];
+  saveTodosToStorage();
 }
 
 function editTodoInState(id, newText) {
@@ -50,4 +54,19 @@ function editTodoInState(id, newText) {
 
     return todo;
   });
+  saveTodosToStorage();
+}
+
+function saveTodosToStorage() {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(todos));
+}
+
+function loadTodosFromStorage() {
+  const savedTodos = localStorage.getItem(STORAGE_KEY);
+
+  if (savedTodos === null) {
+    return null;
+  }
+
+  return JSON.parse(savedTodos);
 }
