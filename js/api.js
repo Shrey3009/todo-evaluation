@@ -22,3 +22,24 @@ async function addTodo(todoText) {
   const data = await response.json();
   return data;
 }
+
+async function deleteTodo(id) {
+  const response = await fetch(`${API_URL}/${id}`, {
+    method: "DELETE"
+  });
+  const data = await response.json();
+  return data;
+}
+
+async function updateTodo(id, updatedData) {
+  const response = await fetch(`${API_URL}/${id}`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(updatedData)
+  });
+
+  const data = await response.json();
+  return data;
+}
