@@ -38,3 +38,16 @@ function toggleTodoInState(id) {
 
   todos = [updatedTodo, ...remainingTodos];
 }
+
+function editTodoInState(id, newText) {
+  todos = todos.map(function(todo) {
+    if (todo.id === id) {
+      return {
+        ...todo,
+        todo: newText
+      };
+    }
+
+    return todo;
+  });
+}

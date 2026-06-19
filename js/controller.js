@@ -50,7 +50,7 @@ async function handleTodoClick(event) {
         renderTodos(getTodosFromState());
   }
 
-    if (action === "toggle") {
+if (action === "toggle") {
     const currentTodo = getTodosFromState().find(function(todo) {
         return todo.id === todoId;
     });
@@ -63,6 +63,40 @@ async function handleTodoClick(event) {
 
     renderTodos(getTodosFromState());
     }
+
+if (action === "edit") {
+  const textSpan = todoItem.querySelector(".todo-text");
+  const editButton = event.target;
+
+  const editInput = document.createElement("input");
+  editInput.type = "text";
+  editInput.value = textSpan.textContent;
+  editInput.className = "edit-input";
+
+  todoItem.replaceChild(editInput, textSpan);
+
+  editButton.textContent = "Save";
+  editButton.dataset.action = "save";
+
+  editInput.focus();
+}
+
+if (action === "save") {
+  const editInput = todoItem.querySelector(".edit-input");
+  const newText = editInput.value.trim();
+
+  if (newText === "") {
+    return;
+  }
+
+  await updateTodo(todoId, {
+    todo: newText
+  });
+
+  editTodoInState(todoId, newText);
+
+  renderTodos(getTodosFromState());
+}
   
 }
 
