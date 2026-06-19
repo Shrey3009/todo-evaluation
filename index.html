@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo List App</title>
+  <link rel="stylesheet" href="style.css">
+
+  <script defer src="js/api.js"></script>
+  <script defer src="js/model.js"></script>
+  <script defer src="js/view.js"></script>
+  <script defer src="js/controller.js"></script>
+</head>
+<body>
+
+  <div class="app">
+    <h1>Todo List</h1>
+
+    <form id="todoForm" class="todo-form">
+      <input 
+        type="text" 
+        id="todoInput" 
+        placeholder="Enter a new todo"
+      >
+      <button type="submit">Add Task</button>
+    </form>
+
+    <div class="todo-container">
+
+      <section class="todo-box">
+        <h2>Pending Todos</h2>
+        <ul id="pendingList" class="todo-list"></ul>
+      </section>
+
+      <section class="todo-box">
+        <h2>Completed Todos</h2>
+        <ul id="completedList" class="todo-list"></ul>
+      </section>
+
+    </div>
+  </div>
+
+</body>
+</html>
