@@ -1,7 +1,7 @@
 const API_URL = "https://dummyjson.com/todos";
 
 async function getTodos() {
-  const response = await fetch(API_URL);
+  const response = await fetch(`${API_URL}?limit=15`);
   const data = await response.json();
 
   return data.todos;

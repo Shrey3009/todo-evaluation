@@ -20,14 +20,17 @@ function renderTodos(todoArray) {
     const editButton = document.createElement("button");
     editButton.textContent = "Edit";
     editButton.dataset.action = "edit";
+    editButton.className = "edit-btn";
 
     const deleteButton = document.createElement("button");
     deleteButton.textContent = "Delete";
     deleteButton.dataset.action = "delete";
+    deleteButton.className = "delete-btn";
 
     const toggleButton = document.createElement("button");
     toggleButton.textContent = todo.completed ? "Mark Pending" : "Complete";
     toggleButton.dataset.action = "toggle";
+    toggleButton.className = "toggle-btn";
 
     buttonBox.appendChild(editButton);
     buttonBox.appendChild(deleteButton);
