@@ -18,17 +18,17 @@ function renderTodos(todoArray) {
     buttonBox.className = "todo-actions";
 
     const editButton = document.createElement("button");
-    editButton.textContent = "Edit";
+    editButton.textContent = "✏️Edit";
     editButton.dataset.action = "edit";
     editButton.className = "edit-btn";
 
     const deleteButton = document.createElement("button");
-    deleteButton.textContent = "Delete";
+    deleteButton.textContent = "🗑️Delete";
     deleteButton.dataset.action = "delete";
     deleteButton.className = "delete-btn";
 
     const toggleButton = document.createElement("button");
-    toggleButton.textContent = todo.completed ? "Mark Pending" : "Complete";
+    toggleButton.textContent = todo.completed ? "⬅️Mark Pending" : "✅Complete";
     toggleButton.dataset.action = "toggle";
     toggleButton.className = "toggle-btn";
 

@@ -16,7 +16,7 @@ async function init() {
   setTodos(todosFromApi);
   saveTodosToStorage();
   }
-  
+
   renderTodos(getTodosFromState());
   
 }
@@ -84,7 +84,7 @@ if (action === "edit") {
 
   todoItem.replaceChild(editInput, textSpan);
 
-  editButton.textContent = "Save";
+  editButton.textContent = "💾Save";
   editButton.dataset.action = "save";
 
   editInput.focus();

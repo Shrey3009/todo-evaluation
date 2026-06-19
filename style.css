@@ -28,10 +28,6 @@ h1 {
 
 .todo-box {
   flex: 1;
-}
-
-.todo-box {
-  flex: 1;
   background-color: white;
   padding: 18px;
   border-radius: 8px;
